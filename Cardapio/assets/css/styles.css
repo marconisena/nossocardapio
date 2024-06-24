@@ -1,0 +1,126 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-image: url('../image/pexels-life-of-pix-67468.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+.container-fluid {
+    padding: 20px;
+}
+
+.text-center {
+    color: #000000;
+    font-family: cursive;
+    
+}
+
+.menu {
+    background-color: #222;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.menu-button {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    background-color: transparent;
+    border: none;
+    border-left: 3px solid transparent;
+    transition: background-color 0.3s ease, border-left-color 0.3s ease;
+    color: #fff;
+}
+
+.menu-button:hover {
+    background-color: #444;
+    border-left-color: #f90;
+}
+
+.submenu-section {
+    background-color: #222222da;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.submenu-section.horizontal {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.menu-item {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 20px;
+    width: 300px;
+}
+
+.menu-item:last-child {
+    margin-right: 0;
+}
+
+.menu-item .menu-img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.menu-item .description {
+    color: #fff;
+}
+
+.customization,
+.finalize-order {
+    margin-top: 10px;
+}
+
+.customization h4,
+.finalize-order h4 {
+    color: #f90;
+}
+
+.customize label,
+.finalize-order label {
+    display: block;
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+.customize input[type="checkbox"],
+.finalize-order input[type="radio"] {
+    margin-right: 5px;
+}
+@media (max-width: 992px) {
+    .submenu-section.horizontal {
+        flex-direction: column;
+        white-space: normal;
+        overflow-x: hidden;
+    }
+
+    .menu-item {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px; 
+    }
+}
+
+.finalize-order button {
+    background-color: #f90; /* Cor de fundo laranja */
+    color: #fff; /* Cor do texto branco */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.finalize-order button:hover {
+    background-color: #000000; /* Alteração de cor ao passar o mouse */
+}

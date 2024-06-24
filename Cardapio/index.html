@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Pedido de Restaurante</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="container-fluid fundo"> 
+            <h3 class="text-center">Nosso Menu</h3>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="menu">
+                    <h1>Menu</h1>
+                    <button class="menu-button" onclick="mostrarSubmenu('destaques')">Destaques</button>
+                    <button class="menu-button" onclick="mostrarSubmenu('pratos')">Pratos</button>
+                    <button class="menu-button" onclick="mostrarSubmenu('bebidas')">Bebidas</button>
+                    <button class="menu-button" onclick="mostrarSubmenu('sobremesas')">Sobremesas</button>
+                </div>
+            </div>
+
+            <div class="col-lg-9">
+                <div id="destaques" class="submenu-section">
+                    <h2>Destaques</h2>
+                    <div class="menu-item">
+                        <img src="assets/image/nutricao-comida-brasileiro-prato.png" alt="Prato Especial" class="menu-img">
+                        <div class="content">
+                            <h3>Prato Especial</h3>
+                            <div class="description">
+                                <p><strong>Tamanho da porção:</strong> 600g</p>
+                                <p><strong>Ingredientes:</strong> Arroz, Feijão, Bife, Salada</p>
+                                <p><strong>Para quantas pessoas:</strong> 2</p>
+                                <p><strong>Preço:</strong> R$ 45,00</p>
+                            </div>
+                            <div class="customization">
+                                <h4>Personalização do Prato</h4>
+                                <label><input type="checkbox" id="retirar-item"> Retirar Item (Batata)</label>
+                                <label><input type="checkbox" id="retirar-molho"> Retirar Molho</label>
+                                <label><input type="checkbox" id="acrescentar-pimenta"> Acrescentar Pimenta</label>
+                            </div>
+                            <div class="finalize-order">
+                                <h4>Finalização do Pedido</h4>
+                                <label><input type="radio" name="consumo" value="mesa" checked> Consumir na Mesa</label>
+                                <label><input type="radio" name="consumo" value="viagem"> Para Viagem</label>
+                                <button onclick="finalizarPedido()">Finalizar Pedido</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="pratos" class="submenu-section" style="display: none;">
+                    <h2>Pratos</h2>
+                    <div class="menu-item">
+                        <img src="./assets/image/arroz, batata.jpg" alt="Prato 1" class="menu-img">
+                        <div class="content">
+                            <h3>Prato 1</h3>
+                            <div class="description">
+                                <p><strong>Tamanho da porção:</strong> 500g</p>
+                                <p><strong>Ingredientes:</strong> Arroz, Feijão, Carne, Batata</p>
+                                <p><strong>Para quantas pessoas:</strong> 2</p>
+                                <p><strong>Preço:</strong> R$ 35,00</p>
+                            </div>
+                            <div class="customization">
+                                <h4>Personalização do Prato</h4>
+                                <label><input type="checkbox" id="retirar-item-1"> Retirar Item (Batata)</label>
+                                <label><input type="checkbox" id="retirar-molho-1"> Retirar Molho</label>
+                                <label><input type="checkbox" id="acrescentar-pimenta-1"> Acrescentar Pimenta</label>
+                            </div>
+                            <div class="finalize-order">
+                                <h4>Finalização do Pedido</h4>
+                                <label><input type="radio" name="consumo-1" value="mesa" checked> Consumir na Mesa</label>
+                                <label><input type="radio" name="consumo-1" value="viagem"> Para Viagem</label>
+                                <button onclick="finalizarPedido('retirar-item-1', 'retirar-molho-1', 'acrescentar-pimenta-1', 'consumo-1')">Finalizar Pedido</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="bebidas" class="submenu-section" style="display: none;">
+                    <h2>Bebidas</h2>
+                    <div class="menu-item">
+                        <img src="./assets/image/latas_de_refrigerantes.jpg" alt="Bebida 1" class="menu-img img-fluid">
+                        <div class="content">
+                            <div class="description">
+                                <p><strong>Tipo:</strong> Refrigerante</p>
+                                <p><strong>Tamanho:</strong> Lata</p>
+                                <p><strong>Sabores disponíveis:</strong> Cola, Limão, Laranja</p>
+                                <p><strong>Preço:</strong> R$ 5,00</p>
+                            </div>
+                            <div class="customize">
+                                <h4>Personalização da Bebida</h4>
+                                <label><input type="checkbox" id="sem-gelo"> Sem Gelo</label>
+                                <label><input type="checkbox" id="pouco-gas"> Pouco Gás</label>
+                            </div>
+                            <div class="finalize-order">
+                                <h4>Finalização do Pedido</h4>
+                                <label><input type="radio" name="consumo-bebida-1" value="mesa" checked> Consumir na Mesa</label>
+                                <label><input type="radio" name="consumo-bebida-1" value="viagem"> Para Viagem</label>
+                                <button onclick="finalizarPedidoBebida('sem-gelo', 'pouco-gas', 'consumo-bebida-1')" class="btn btn-primary">Finalizar Pedido</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="sobremesas" class="submenu-section" style="display: none;">
+                    <h2>Sobremesas</h2>
+                    <div class="menu-item">
+                        <img src="./assets/image/pudim.jpg" alt="Sobremesa 1" class="menu-img img-fluid">
+                        <div class="content">
+                            <h3>Sobremesa 1</h3>
+                            <div class="description">
+                                <p><strong>Tipo:</strong> Pudim</p>
+                                <p><strong>Ingredientes:</strong> Leite, Ovos, Açúcar</p>
+                                <p><strong>Tamanho da porção:</strong> 100g</p>
+                                <p><strong>Preço:</strong> R$ 10,00</p>
+                            </div>
+                            <div class="customize">
+                                <h4>Personalização da Sobremesa</h4>
+                                <label><input type="checkbox" id="sem-calda"> Sem Calda</label>
+                            </div>
+                            <div class="finalize-order">
+                                <h4>Finalização do Pedido</h4>
+                                <label><input type="radio" name="consumo-sobremesa-1" value="mesa" checked> Consumir na Mesa</label>
+                                <label><input type="radio" name="consumo-sobremesa-1" value="viagem"> Para Viagem</label>
+                                <button onclick="finalizarPedidoSobremesa('sem-calda', 'consumo-sobremesa-1')" class="btn btn-primary">Finalizar Pedido</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js" integrity="sha384-zcPhl/1k+1V1L6oHgEChBfQ/8pDpUawfAc2rH5AL/g3gZ7R9h/rry2MZWJbI1be+" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy0HWr5vH2bhK+6v/Bb2RSrJFex5K2MWKx" crossorigin="anonymous"></script>
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
